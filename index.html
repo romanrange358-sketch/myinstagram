@@ -1,92 +1,70 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<title>Social Media Demo</title>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-
-<style>
-body {
-  background: #f4f4f4;
-  font-family: Arial;
-  text-align: center;
-  padding: 40px 15px;
-}
-
-.box {
-  background: white;
-  max-width: 330px;
-  margin: auto;
-  padding: 25px;
-  border-radius: 15px;
-  box-shadow: 0 2px 15px #ccc;
-}
-
-.logo {
-  font-size: 45px;
-}
-
-h2 {
-  color: #833ab4;
-}
-
-input {
-  width: 90%;
-  padding: 12px;
-  margin: 12px 0;
-  border: 1px solid #ccc;
-  border-radius: 7px;
-}
-
-button {
-  background: #833ab4;
-  color: white;
-  padding: 12px 25px;
-  border: none;
-  border-radius: 7px;
-  cursor: pointer;
-}
-
-#result {
-  color: green;
-  margin-top: 15px;
-}
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Social Media Demo</title>
+  <style>
+    body {
+      background: #f4f4f4;
+      font-family: Arial, sans-serif;
+      text-align: center;
+      padding: 35px 15px;
+    }
+    .box {
+      background: white;
+      max-width: 360px;
+      margin: auto;
+      padding: 25px;
+      border-radius: 15px;
+      box-shadow: 0 2px 15px #ccc;
+    }
+    h2 { color: #833ab4; }
+    input {
+      width: 90%;
+      padding: 12px;
+      margin: 12px 0;
+      border: 1px solid #ccc;
+      border-radius: 7px;
+    }
+    button {
+      background: #833ab4;
+      color: white;
+      padding: 12px 25px;
+      border: 0;
+      border-radius: 7px;
+      cursor: pointer;
+    }
+    #result { color: green; }
+  </style>
 </head>
-
 <body>
+  <div class="box">
+    <div style="font-size:45px">📷</div>
+    <h2>Social Media Demo</h2>
+    <p>Educational Test Page</p>
 
-<div class="box">
-  <div class="logo">📷</div>
-  <h2>Social Media Demo</h2>
-  <p>Educational Test Page</p>
+    <input id="message" type="text"
+      placeholder="Enter a test message">
 
-  <input
-    type="text"
-    id="message"
-    placeholder="Enter test message"
-  >
+    <button onclick="sendMessage()">Submit</button>
 
-  <button onclick="sendMessage()">
-    Submit
-  </button>
+    <p id="result"></p>
+    <small>Demo only. No passwords collected.</small>
+  </div>
 
-  <p id="result"></p>
-  <small>Demo only. No passwords collected.</small>
-</div>
+  <script>
+    function sendMessage() {
+      const msg = document.getElementById("message").value.trim();
 
-<script>
-function sendMessage() {
-  let msg = document.getElementById("message").value;
+      if (!msg) {
+        alert("Please enter a test message");
+        return;
+      }
 
-  if (!msg.trim()) {
-    alert("Please enter a test message");
-    return;
-  }
-
-  document.getElementById("result").innerText =
-    "Test message received: " + msg;
-}
-</script>
-
+      document.getElementById("result").textContent =
+        "Test message received: " + msg;
+    }
+  </script>
 </body>
 </html>
