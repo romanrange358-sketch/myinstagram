@@ -1,11 +1,92 @@
 <!DOCTYPE html>
 <html>
+<head>
+<title>Social Media Demo</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<style>
+body {
+  background: #f4f4f4;
+  font-family: Arial;
+  text-align: center;
+  padding: 40px 15px;
+}
+
+.box {
+  background: white;
+  max-width: 330px;
+  margin: auto;
+  padding: 25px;
+  border-radius: 15px;
+  box-shadow: 0 2px 15px #ccc;
+}
+
+.logo {
+  font-size: 45px;
+}
+
+h2 {
+  color: #833ab4;
+}
+
+input {
+  width: 90%;
+  padding: 12px;
+  margin: 12px 0;
+  border: 1px solid #ccc;
+  border-radius: 7px;
+}
+
+button {
+  background: #833ab4;
+  color: white;
+  padding: 12px 25px;
+  border: none;
+  border-radius: 7px;
+  cursor: pointer;
+}
+
+#result {
+  color: green;
+  margin-top: 15px;
+}
+</style>
+</head>
+
 <body>
-<h2>My Safe Demo Login</h2>
-<p>Enter a test message:</p>
-<input id="msg" placeholder="Test message">
-<button onclick="alert('Demo successful!')">
-Submit
-</button>
+
+<div class="box">
+  <div class="logo">📷</div>
+  <h2>Social Media Demo</h2>
+  <p>Educational Test Page</p>
+
+  <input
+    type="text"
+    id="message"
+    placeholder="Enter test message"
+  >
+
+  <button onclick="sendMessage()">
+    Submit
+  </button>
+
+  <p id="result"></p>
+  <small>Demo only. No passwords collected.</small>
+</div>
+
+<script>
+function sendMessage() {
+  let msg = document.getElementById("message").value;
+
+  if (!msg.trim()) {
+    alert("Please enter a test message");
+    return;
+  }
+
+  document.getElementById("result").innerText =
+    "Test message received: " + msg;
+}
+</script>
+
 </body>
 </html>
